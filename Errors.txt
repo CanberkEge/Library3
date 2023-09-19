@@ -1,0 +1,1 @@
+Library3.Business katmanýnda Concrete klasöründe BaseManager classýnda hata alýyorum.(delete ve getallasync regionlarý)
