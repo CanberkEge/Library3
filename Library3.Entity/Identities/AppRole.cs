@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Library3.Entity.Identities
 {
-    public class MyUser : IdentityUser
+    public class AppRole : IdentityRole
     {
-        public string TCNO { get; set; }
+
     }
 }
