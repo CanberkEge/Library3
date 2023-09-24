@@ -11,5 +11,7 @@ namespace Library3.Entity.Concrete
     {
         public string PublisherName { get; set; }
         public string PublishYear { get; set; }
+        public ICollection<Book>? Books { get; set; }
+
     }
 }

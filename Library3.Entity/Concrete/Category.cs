@@ -11,5 +11,6 @@ namespace Library3.Entity.Concrete
 
     {
         public string CategoryName { get; set; }
+        public ICollection<Book>? Books { get; set; }
     }
 }

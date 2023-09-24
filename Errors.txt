@@ -1,1 +1,3 @@
-Library3.Business katmanýnda Concrete klasöründe BaseManager classýnda hata alýyorum.(delete ve getallasync regionlarý)
+Library3.Business katmanýnda Concrete klasöründe BaseManager classýnda hata alýyorum.(delete ve getallasync regionlarý).(Çözüldü-25.09.2023 02.22)
+Entity klasöründe Concrete katmanýnda Menu yok.
+Entity'de Authentication yok.

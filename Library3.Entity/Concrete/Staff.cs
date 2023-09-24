@@ -11,6 +11,8 @@ namespace Library3.Entity.Concrete
     {
         public string StaffFirstName { get; set; }
         public string StaffLastName { get; set; }
+        public ICollection<Book>? Books { get; set; }
+        public ICollection<Reader> Readers { get; set; }
 
     }
 }

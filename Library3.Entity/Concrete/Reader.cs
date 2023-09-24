@@ -14,5 +14,9 @@ namespace Library3.Entity.Concrete
         public string Adress {  get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+
+        public ICollection<Book>? Books { get; set; }
+        public ICollection<Staff> Staffs { get; set;}
+
     }
 }
