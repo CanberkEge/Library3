@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Free_Template_Home\images\slideshow\medium-shot-business-women-high-five.jpeg" />
+    <Content Remove="wwwroot\Free_Template_Home\images\slideshow\medium-shot-business-women-high-five.jpeg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="AutoMapperProfile\" />
     <Folder Include="Area\" />
     <Folder Include="Extensions\" />
