@@ -1,4 +1,8 @@
-﻿<!doctype html>
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -23,6 +27,7 @@
 
     <link href="~/Free_Template_Home/css/tooplate-little-fashion.css" rel="stylesheet">
 
+    <link rel="icon" href="~/Free_Template_Home/images/book_icon2.png" />
     <!--
 
     Tooplate 2127 Italian Library
@@ -48,7 +53,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" asp-area="Default" asp-controller="Home" asp-action="Index">
                     <strong><span>Italian</span> Library</strong>
                 </a>
 
@@ -61,23 +66,23 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Free_Template_Home/index.html">Home</a>
+                            <a asp-area="Default" asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="~/Free_Template_Home/about.html">About Us</a>
+                            <a asp-area="Default" asp-controller="Home" asp-action="About" class="nav-link">About Us</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Free_Template_Home/products.html">Books</a>
+                            <a asp-area="Default" asp-controller="Book" asp-action="Index" class="nav-link" >Books</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Free_Template_Home/faq.html">FAQs</a>
+                            <a asp-area="Default" asp-controller="Home" asp-action="FAQ" class="nav-link">FAQs</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Free_Template_Home/contact.html">Contact</a>
+                            <a asp-area="Default" asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
                         </li>
                     </ul>
 
@@ -231,22 +236,24 @@
                     <h4 class="text-white mb-3"><a href="index.html">Italian</a> Library</h4>
                     <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Italian Library</strong></p>
                     <br>
-                    <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Canberk Ege Erden</a></p>
                 </div>
 
                 <div class="col-lg-5 col-8">
                     <h5 class="text-white mb-3">Sitemap</h5>
 
                     <ul class="footer-menu d-flex flex-wrap">
-                        <li class="footer-menu-item"><a href="~/Free_Template_Home/about.html" class="footer-menu-link">About</a></li>
+                        <li class="footer-menu-item"><a asp-area="Default" asp-controller="Home" asp-action="About" class="footer-menu-link">About Us</a></li>
 
-                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Books</a></li>
+                        <li class="footer-menu-item"><a asp-area="Default" asp-controller="Book" asp-action="Index" class="footer-menu-link">Books</a></li>
+
 
                         <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
 
-                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
+                        <li class="footer-menu-item"><a asp-area="Default" asp-controller="Home" asp-action="FAQ" class="footer-menu-link">FAQs</a></li>
 
-                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+
+                        <li class="footer-menu-item"><a asp-area="Default" asp-controller="Home" asp-action="Contact" class="footer-menu-link">Contact</a></li>
                     </ul>
                 </div>
 
