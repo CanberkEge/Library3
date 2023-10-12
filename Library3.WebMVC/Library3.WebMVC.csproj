@@ -12,16 +12,38 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Member\Controllers\" />
     <Folder Include="Areas\Member\Data\" />
     <Folder Include="Areas\Member\Models\" />
     <Folder Include="Areas\Member\Views\" />
     <Folder Include="AutoMapperProfile\" />
+    <Folder Include="Models\DTO%27s\" />
     <Folder Include="ViewComponents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets_adminpanel\js\config.js" />
+    <None Include="wwwroot\assets_adminpanel\js\dashboards-analytics.js" />
+    <None Include="wwwroot\assets_adminpanel\js\extended-ui-perfect-scrollbar.js" />
+    <None Include="wwwroot\assets_adminpanel\js\form-basic-inputs.js" />
+    <None Include="wwwroot\assets_adminpanel\js\main.js" />
+    <None Include="wwwroot\assets_adminpanel\js\pages-account-settings-account.js" />
+    <None Include="wwwroot\assets_adminpanel\js\ui-modals.js" />
+    <None Include="wwwroot\assets_adminpanel\js\ui-popover.js" />
+    <None Include="wwwroot\assets_adminpanel\js\ui-toasts.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\fonts\boxicons\boxicons.svg" />
+    <None Include="wwwroot\assets_adminpanel\vendor\fonts\boxicons\boxicons.woff2" />
+    <None Include="wwwroot\assets_adminpanel\vendor\js\bootstrap.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\js\helpers.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\js\menu.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\apex-charts\apexcharts.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\highlight\highlight.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\jquery\jquery.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\masonry\masonry.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <None Include="wwwroot\assets_adminpanel\vendor\libs\popper\popper.js" />
   </ItemGroup>
 
   <ItemGroup>
