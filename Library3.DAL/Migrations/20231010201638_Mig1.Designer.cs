@@ -4,6 +4,7 @@ using Library3.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library3.DAL.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    partial class SqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231010201638_Mig1")]
+    partial class Mig1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,9 +149,9 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 926, DateTimeKind.Local).AddTicks(5591));
+                        .HasDefaultValue(new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(594));
 
-                    b.Property<DateTime?>("DueDate")
+                    b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Edition")
@@ -167,10 +170,10 @@ namespace Library3.DAL.Migrations
                     b.Property<int?>("ReaderId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("ReserveDate")
+                    b.Property<DateTime>("ReserveDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("ReturnDate")
+                    b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("StaffId")
@@ -209,7 +212,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(1530));
+                        .HasDefaultValue(new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(7015));
 
                     b.HasKey("Id");
 
@@ -227,11 +230,12 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(3436));
+                        .HasDefaultValue(new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(9017));
 
-                    b.Property<DateTime>("PublishYear")
+                    b.Property<string>("PublishYear")
+                        .IsRequired()
                         .HasMaxLength(4)
-                        .HasColumnType("datetime2");
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<string>("PublisherName")
                         .IsRequired()
@@ -259,7 +263,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(5283));
+                        .HasDefaultValue(new DateTime(2023, 10, 10, 23, 16, 38, 218, DateTimeKind.Local).AddTicks(862));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -296,7 +300,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(7339));
+                        .HasDefaultValue(new DateTime(2023, 10, 10, 23, 16, 38, 218, DateTimeKind.Local).AddTicks(2887));
 
                     b.Property<string>("StaffFirstName")
                         .IsRequired()

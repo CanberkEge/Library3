@@ -1,5 +1,7 @@
 ﻿using Library3.Entity.Abstract;
+using Library3.Entity.Authentication;
 using Library3.Entity.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace Library3.DAL.Context
 {
-    public class SqlDbContext : DbContext
+    public class SqlDbContext : IdentityDbContext <AppUser, AppRole, string>
+
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }

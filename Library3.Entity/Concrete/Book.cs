@@ -15,9 +15,9 @@ namespace Library3.Entity.Concrete
         public string Title { get; set; }
         public string Edition { get; set; }
         public double Price { get; set; }
-        public DateTime ReserveDate {get; set;}
-        public DateTime DueDate {  get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime? ReserveDate {get; set;}
+        public DateTime? DueDate {  get; set; }
+        public DateTime? ReturnDate { get; set; }
 
         public Category? Category { get; set; }
         public Reader? Reader { get; set; }
