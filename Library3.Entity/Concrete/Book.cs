@@ -24,6 +24,12 @@ namespace Library3.Entity.Concrete
         public Publisher? Publisher { get; set; }
         public Staff? Staff { get; set; }
 
+        public int? CategoryId { get; set; }
+
+        public string? BookPhotoName { get; set; }
+
+        public ICollection<Sale>? Sales { get; set; }
+
 
 
     }

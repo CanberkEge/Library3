@@ -24,6 +24,9 @@ namespace Library3.WebMVC.Extensions
             services.AddScoped<IStaffManager, StaffManager>();
             services.AddScoped<IStaffRepository, StaffRepository>();
 
+            services.AddScoped<ISaleManager, SaleManager>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
+
             return services;
         }
 

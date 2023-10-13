@@ -20,6 +20,8 @@ namespace Library3.DAL.Context
         public DbSet<Publisher> Publishers { get; set; } 
         public DbSet<Reader> Readers { get; set; }
         public DbSet<Staff> Staffs { get; set;}
+
+        public DbSet<Sale> Sales { get; set; }
         public SqlDbContext()
         {
             

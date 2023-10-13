@@ -1,0 +1,31 @@
+﻿@model Library3.Entity.Concrete.Book
+
+<!-- Start Blog Section -->
+<div class="card">
+    <div class="card-header">
+        <h3>Are You Sure?</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    <div class="card-body">
+        <form asp-action="Delete" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.BookName" class="form-label">Book Name:</label>
+                <p>
+                    @Html.DisplayFor(model => model.BookName)
+                </p>
+            </div>
+            <div class="mb-3">
+                <p>
+                    Book's Photo:
+                </p>
+                <img src="/images_product/@Model.BookPhotoName" style="max-height: 200px;">
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn btn-primary" asp-action="Index">Back</a>
+            </form>
+        </form>
+    </div>
+</div>
+<!-- End Blog Section -->

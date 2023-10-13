@@ -1,0 +1,30 @@
+﻿@model Library3.Entity.Concrete.Category
+
+<!-- Start Blog Section -->
+<div class="card">
+    <div class="card-header">
+        <h3>Edit Category</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.CategoryName" class="form-label">Enter New Category Name</label>
+                <input asp-for="@Model.CategoryName" class="form-control">
+                <span asp-validation-for="@Model.CategoryName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <img src="/images_category/@Model.CategoryPhotoName" style="max-height: 200px;">
+            </div>
+            <div class="mb-3">
+                <input type="hidden" asp-for="@Model.CreateDate" value="@DateTime.Now">
+            </div>
+            <input type="hidden" asp-for="@Model.Id" />
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            <a class="btn btn-primary" asp-action="Index">Back</a>
+        </form>
+    </div>
+</div>
+<!-- End Blog Section -->

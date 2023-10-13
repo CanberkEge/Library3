@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets_adminpanel-path="~/assets_adminpanel/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Italian Library</title>
+
+    <meta name="description" content="" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/assets_adminpanel/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/assets_adminpanel/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/assets_adminpanel/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/assets_adminpanel/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/assets_adminpanel/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="~/assets_adminpanel/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="~/assets_adminpanel/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/assets_adminpanel/js/config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Start Menu Section -->
+            <div class="col-sm-1"></div>
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" data-bg-class="bg-menu-theme">
+                <div class="app-brand demo">
+                    <span class="menu-item"><a asp-area="default" asp-controller="Home" asp-action="Index">Italian Library</a></span>
+                </div>
+                <div class="menu-inner-shadow"></div>
+
+                <ul class="menu-inner py-1 ps ps--active-y">
+                    <li class="menu-item active">
+                        <a class="menu-link" asp-controller="Home" asp-action="Index">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Account Settings</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a asp-area="default" asp-controller="Login" asp-action="Logout" class="menu-link">
+                            <i class="bx bx-power-off me-2"></i>
+                            <div class="align-middle">Log Out</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- End Menu Section -->
+            <div class="col-sm-11">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_AValidationScriptsPartial");
+    }
+}

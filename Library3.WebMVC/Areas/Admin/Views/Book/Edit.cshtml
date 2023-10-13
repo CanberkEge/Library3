@@ -1,0 +1,51 @@
+﻿@model Library3.Entity.Concrete.Book
+
+<!-- Start Blog Section -->
+<div class="card">
+    <div class="card-header">
+        <h3>Edit Book</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <div class="mb-3">
+                <img src="/images_product/@Model.BookPhotoName" style="max-height: 200px;">
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.BookName" class="form-label">Enter Name</label>
+                <input asp-for="@Model.BookName" class="form-control">
+                <span asp-validation-for="@Model.BookName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Author" class="form-label">Enter Brand</label>
+                <input asp-for="@Model.Author" class="form-control">
+                <span asp-validation-for="@Model.Author" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Edition" class="form-label">Enter Model</label>
+                <input asp-for="@Model.Edition" class="form-control">
+                <span asp-validation-for="@Model.Edition" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Price" class="form-label">Enter Price($)</label>
+                <input asp-for="@Model.Price" class="form-control">
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
+            </div>
+          
+          
+            <div class="mb-3">
+                <label asp-for="@Model.CategoryId" class="form-label">Select Category</label>
+                <select asp-for="@Model.CategoryId" class="form-control" asp-items="@ViewBag.Categories">
+                    <option value="">Select</option>
+                </select>
+                <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+            </div>
+            <a class="btn btn-primary" asp-action="Index">Back</a>
+        </form>
+    </div>
+</div>
+<!-- End Blog Section -->
