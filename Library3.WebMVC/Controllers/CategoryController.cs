@@ -10,12 +10,12 @@ namespace Library3.WebMVC.Controllers
     public class CategoryController : Controller
     {
         private readonly SqlDbContext dbContext;
-        private readonly IBookManager bookManager;
+        
 
-        public CategoryController(SqlDbContext dbContext, IBookManager bookManager)
+        public CategoryController(SqlDbContext dbContext)
         {
             this.dbContext = dbContext;
-            this.bookManager = bookManager;
+            
         }
 
         public async Task<IActionResult> Index()
@@ -48,6 +48,7 @@ namespace Library3.WebMVC.Controllers
 
         public async Task<IActionResult> BookInCategory(int categoryId) 
         {
+            BookManager bookManager = new BookManager();
             var booksInCategory = await bookManager.GetAllInclude(null, c => c.Category);
             var filteredBooks = booksInCategory.Where(c => c.Category!= null && c.Category.Id == categoryId).ToList();
 

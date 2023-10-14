@@ -1,5 +1,6 @@
 using Library3.DAL.Context;
 using Library3.Entity.Authentication;
+using Library3.WebMVC.Areas.Admin.AutoMapperProfile;
 using Library3.WebMVC.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -61,9 +62,9 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
 
 builder.Services.AddLibrary3Services();
 
-//#region AutoMapper
-//builder.Services.AddAutoMapper(typeof(MyDukkanProfile));
-//#endregion
+#region AutoMapper
+builder.Services.AddAutoMapper(typeof(Library3Profile));
+#endregion
 
 var app = builder.Build();
 //
@@ -78,6 +79,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+#region Area Controller Route
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -85,6 +88,8 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
+
+#endregion
 
 #region Map Controller Route
 app.MapControllerRoute(

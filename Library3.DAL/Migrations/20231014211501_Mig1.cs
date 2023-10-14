@@ -60,7 +60,8 @@ namespace Library3.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(7015))
+                    CategoryPhotoName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 733, DateTimeKind.Local).AddTicks(8584))
                 },
                 constraints: table =>
                 {
@@ -74,8 +75,8 @@ namespace Library3.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PublisherName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    PublishYear = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(9017))
+                    PublishYear = table.Column<DateTime>(type: "datetime2", maxLength: 4, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(404))
                 },
                 constraints: table =>
                 {
@@ -93,7 +94,7 @@ namespace Library3.DAL.Migrations
                     Adress = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 10, 23, 16, 38, 218, DateTimeKind.Local).AddTicks(862))
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(2290))
                 },
                 constraints: table =>
                 {
@@ -108,7 +109,7 @@ namespace Library3.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StaffFirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     StaffLastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 10, 23, 16, 38, 218, DateTimeKind.Local).AddTicks(2887))
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(6525))
                 },
                 constraints: table =>
                 {
@@ -222,6 +223,28 @@ namespace Library3.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantity = table.Column<int>(type: "int", nullable: true, defaultValue: 0),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    IsPaid = table.Column<bool>(type: "bit", nullable: true, defaultValue: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 733, DateTimeKind.Local).AddTicks(6355))
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carts_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
@@ -229,18 +252,19 @@ namespace Library3.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BookName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PageNumber = table.Column<int>(type: "int", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    ReserveDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    Author = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Edition = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ReserveDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ReaderId = table.Column<int>(type: "int", nullable: true),
                     PublisherId = table.Column<int>(type: "int", nullable: true),
                     StaffId = table.Column<int>(type: "int", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 10, 23, 16, 38, 217, DateTimeKind.Local).AddTicks(594))
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    BookPhotoName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 732, DateTimeKind.Local).AddTicks(9015))
                 },
                 constraints: table =>
                 {
@@ -291,6 +315,52 @@ namespace Library3.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "BookCart",
+                columns: table => new
+                {
+                    BooksId = table.Column<int>(type: "int", nullable: false),
+                    CartsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookCart", x => new { x.BooksId, x.CartsId });
+                    table.ForeignKey(
+                        name: "FK_BookCart_Books_BooksId",
+                        column: x => x.BooksId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BookCart_Carts_CartsId",
+                        column: x => x.CartsId,
+                        principalTable: "Carts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sales",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DiscountRate = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    BookId = table.Column<int>(type: "int", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(4483))
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sales", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sales_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -331,6 +401,11 @@ namespace Library3.DAL.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookCart_CartsId",
+                table: "BookCart",
+                column: "CartsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Books_CategoryId",
                 table: "Books",
                 column: "CategoryId");
@@ -351,9 +426,19 @@ namespace Library3.DAL.Migrations
                 column: "StaffId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Carts_UserId",
+                table: "Carts",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ReaderStaff_StaffsId",
                 table: "ReaderStaff",
                 column: "StaffsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sales_BookId",
+                table: "Sales",
+                column: "BookId");
         }
 
         /// <inheritdoc />
@@ -375,13 +460,22 @@ namespace Library3.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "BookCart");
 
             migrationBuilder.DropTable(
                 name: "ReaderStaff");
 
             migrationBuilder.DropTable(
+                name: "Sales");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Carts");
+
+            migrationBuilder.DropTable(
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

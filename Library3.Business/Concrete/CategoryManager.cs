@@ -11,9 +11,9 @@ namespace Library3.Business.Concrete
 {
     public class CategoryManager : BaseManager<Category>, ICategoryManager
     {
-        public CategoryManager(ICategoryRepository repository) : base(repository)  
-        {
-            
-        }
+         
+        
+           
+        
     }
 }

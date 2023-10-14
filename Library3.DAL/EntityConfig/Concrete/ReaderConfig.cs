@@ -19,6 +19,7 @@ namespace Library3.DAL.EntityConfig.Concrete
             builder.Property(p=> p.ReaderLastName).HasMaxLength(256);
             builder.Property(p=> p.Adress).HasMaxLength(512);
             builder.Property(p=> p.Email).HasMaxLength(100);
+            
             builder.HasMany(p => p.Books).WithOne(r => r.Reader);
             builder.HasMany(s => s.Staffs).WithMany(r => r.Readers);
 

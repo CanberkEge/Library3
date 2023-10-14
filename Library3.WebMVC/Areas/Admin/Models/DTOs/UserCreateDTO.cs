@@ -20,7 +20,7 @@ namespace Library3.WebMVC.Areas.Admin.Models.DTOs
         //--------------------------------------------------------------
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Select email confirmed!")]
-        public bool IsEmailConfirmed { get; set; }
+        public bool EmailConfirmed { get; set; }
         //--------------------------------------------------------------
         public string? Gender { get; set; }
         //--------------------------------------------------------------

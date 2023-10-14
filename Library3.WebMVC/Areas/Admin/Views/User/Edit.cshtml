@@ -1,0 +1,118 @@
+﻿@model Library3.Entity.Authentication.AppUser
+
+<!-- Start Blog Section -->
+<div class="card">
+    <div class="card-header">
+        <h3>Edit User</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.TcNO" class="form-label">Role</label>
+                <select asp-for="@Model.TcNO" class="form-control" asp-items="@ViewBag.Roles">
+                    <option value="">Select</option>
+                </select>
+                <span asp-validation-for="@Model.PhoneNumberConfirmed" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.UserName" class="form-label">User Name</label>
+                <input asp-for="@Model.UserName" class="form-control">
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.NormalizedUserName" class="form-label">Normalized User Name</label>
+                <input asp-for="@Model.NormalizedUserName" class="form-control">
+                <span asp-validation-for="@Model.NormalizedUserName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Email" class="form-label">Email</label>
+                <input asp-for="@Model.Email" class="form-control">
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.NormalizedEmail" class="form-label">Normalized Email</label>
+                <input asp-for="@Model.NormalizedEmail" class="form-control">
+                <span asp-validation-for="@Model.NormalizedEmail" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.EmailConfirmed" class="form-label">Email Confirmed</label>
+                <select asp-for="@Model.EmailConfirmed" class="form-control">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+                <span asp-validation-for="@Model.EmailConfirmed" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.PasswordHash" class="form-label">Password Hash</label>
+                <input asp-for="@Model.PasswordHash" class="form-control">
+                <span asp-validation-for="@Model.PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Gender" class="form-label">Gender</label>
+                <input asp-for="@Model.Gender" class="form-control">
+                <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TcNO" class="form-label">Tc No</label>
+                <input asp-for="@Model.TcNO" class="form-control">
+                <span asp-validation-for="@Model.TcNO" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.PhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="@Model.PhoneNumber" class="form-control">
+                <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.PhoneNumberConfirmed" class="form-label">Phone Number Confirmed</label>
+                <select asp-for="@Model.PhoneNumberConfirmed" class="form-control">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+                <span asp-validation-for="@Model.PhoneNumberConfirmed" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TwoFactorEnabled" class="form-label">Two Factor Enabled</label>
+                <select asp-for="@Model.TwoFactorEnabled" class="form-control">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+                <span asp-validation-for="@Model.TwoFactorEnabled" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.SecurityStamp" class="form-label">Security Stamp</label>
+                <input asp-for="@Model.SecurityStamp" class="form-control">
+                <span asp-validation-for="@Model.SecurityStamp" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.ConcurrencyStamp" class="form-label">Concurrency Stamp</label>
+                <input asp-for="@Model.ConcurrencyStamp" class="form-control">
+                <span asp-validation-for="@Model.ConcurrencyStamp" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.LockoutEnd" class="form-label">Lockout End</label>
+                <input asp-for="@Model.LockoutEnd" class="form-control">
+                <span asp-validation-for="@Model.LockoutEnd" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.LockoutEnabled" class="form-label">Lockout Enabled</label>
+                <select asp-for="@Model.LockoutEnabled" class="form-control">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+                <span asp-validation-for="@Model.LockoutEnabled" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.AccessFailedCount" class="form-label">Access Failed Count</label>
+                <input asp-for="@Model.AccessFailedCount" class="form-control">
+                <span asp-validation-for="@Model.AccessFailedCount" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+            </div>
+            <a class="btn btn-primary" asp-action="Index">Back</a>
+        </form>
+    </div>
+</div>
+<!-- End Blog Section -->

@@ -2,7 +2,7 @@
 
 namespace Library3.WebMVC.Models.DTO_s
 {
-    public class loginDTO
+    public class LoginDTO
     {
         //-----------------------------------------------------------------------
         [Required(AllowEmptyStrings = false, ErrorMessage = "Enter Email!")]

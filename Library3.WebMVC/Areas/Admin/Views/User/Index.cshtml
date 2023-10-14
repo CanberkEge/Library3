@@ -1,0 +1,59 @@
+﻿@using Library3.WebMVC.Areas.Admin.Models.DTOs
+@model IEnumerable<UserWithRoleDTO>
+
+
+<!-- Start Blog Section -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+                        </div>
+                        <div class="card-body">
+                            <a asp-area="Admin" asp-controller="User" asp-action="Create" button type="button" class="btn btn-secondary btn-lg">Add User</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table no-wrap user-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">User Name</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Role</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Gender</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Tc No</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Phone Number</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in Model)
+                                    {
+                                        <tr>
+                                            <td>@user.UserName</td>
+                                            <td>@user.Email</td>
+                                            <td>@user.Roles</td>
+                                            <td>@user.Gender</td>
+                                            <td>@user.TcNo</td>
+                                            <td>@user.PhoneNumber</td>
+                                            <td>
+                                                <a class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@user.UserId"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" asp-area="Admin" asp-controller="User" asp-action="Edit" asp-route-id="@user.UserId"><i class="fa fa-edit"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog Section -->

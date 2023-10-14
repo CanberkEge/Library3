@@ -11,9 +11,9 @@ namespace Library3.Business.Concrete
 {
     public class BookManager : BaseManager<Book>, IBookManager
     {
-        public BookManager(IBookRepository repository) : base(repository) 
-        {
+        
+        
             
-        }
+        
     }
 }

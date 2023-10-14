@@ -27,6 +27,9 @@ namespace Library3.WebMVC.Extensions
             services.AddScoped<ISaleManager, SaleManager>();
             services.AddScoped<ISaleRepository, SaleRepository>();
 
+            services.AddScoped<ICartManager, CartManager>();
+            services.AddScoped<ICartRepository, CartRepository>();
+
             return services;
         }
 

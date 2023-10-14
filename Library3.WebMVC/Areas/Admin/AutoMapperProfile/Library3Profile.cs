@@ -13,6 +13,7 @@ namespace Library3.WebMVC.Areas.Admin.AutoMapperProfile
             CreateMap<CategoryCreateDTO, Category>();
             CreateMap<UserCreateDTO, AppUser>();
             CreateMap<RoleCreateDTO, AppRole>();
+            
         }
 
     }

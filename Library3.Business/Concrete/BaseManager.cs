@@ -20,13 +20,13 @@ namespace Library3.Business.Concrete
         
         
 
-        public BaseManager(IBaseRepository<T> repository)
+        public BaseManager()                           
         {
 
             
-            this.repository = repository;
+            this.repository =  new BaseRepository<T>();
         }
-
+        
         #region Insert
         public virtual async Task<int> InsertAsync(T entity)
         {

@@ -11,9 +11,6 @@ namespace Library3.Business.Concrete
 {
     public class ReaderManager : BaseManager<Reader>, IReaderManager
     {
-        public ReaderManager(IReaderRepository repository) : base(repository)  
-        {
-            
-        }
+        
     }
 }

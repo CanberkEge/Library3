@@ -29,6 +29,7 @@ namespace Library3.Entity.Concrete
         public string? BookPhotoName { get; set; }
 
         public ICollection<Sale>? Sales { get; set; }
+        public ICollection<Cart>? Carts { get; set; }
 
 
 

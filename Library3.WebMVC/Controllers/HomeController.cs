@@ -1,4 +1,5 @@
-﻿using Library3.Entity.Authentication;
+﻿using Library3.Business.Abstract;
+using Library3.Entity.Authentication;
 using Library3.WebMVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,21 +12,30 @@ namespace Library3.WebMVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<AppUser> userManager;
+        private readonly ISaleManager saleManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager, ISaleManager saleManager)
         {
             _logger = logger;
             this.userManager = userManager;
+            this.saleManager = saleManager;
         }
 
         public async Task<IActionResult> Index()
         {
             //AppUser admin = new AppUser { UserName = "Canberk", Email = "canberk@gmail.com", PhoneNumberConfirmed = true, TwoFactorEnabled = false, EmailConfirmed = true, AccessFailedCount = 0, LockoutEnabled = false };
             //var result = await userManager.CreateAsync(admin, "123");
-            return View();
+
+            var sale = await saleManager.GetAllInclude(null, p => p.Book);
+            return View(sale);
         }
 
-        public IActionResult About()
+        public IActionResult ContactUs()
+        { 
+            return View(); 
+        }
+
+       /* public IActionResult About()
         {
             return View();
         }
@@ -49,6 +59,6 @@ namespace Library3.WebMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+       */
     }
 }

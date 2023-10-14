@@ -12,12 +12,12 @@ namespace Library3.WebMVC.Controllers
     public class BookController : Controller
     {
         private readonly SqlDbContext dbContext;
-        private readonly IBookManager bookManager;
+        
 
-        public BookController(SqlDbContext dbContext, IBookManager bookManager)
+        public BookController(SqlDbContext dbContext)
         {
             this.dbContext = dbContext;
-            this.bookManager = bookManager;
+            
         }
         public async Task<IActionResult> Index()
         {

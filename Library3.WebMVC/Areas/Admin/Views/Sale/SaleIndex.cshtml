@@ -1,0 +1,66 @@
+﻿@using Library3.WebMVC.Areas.Admin.Models.DTOs
+@model IEnumerable<Sale>
+
+
+<!-- Start Blog Section -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase mb-0">Manage Sale Books</h5>
+                        </div>
+                        <div class="card-body">
+                            <a asp-area="Admin" asp-controller="Sale" asp-action="Index" button type="button" class="btn btn-secondary btn-lg">Add Sale Books</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table no-wrap user-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Discount Rate</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Start Date</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">End Date</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Brand</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Model</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Price</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Photo</th>
+                                        <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.DiscountRate</td>
+                                            <td>@item.StartDate</td>
+                                            <td>@item.EndDate</td>
+
+                                            @if (item.Book != null)
+                                            {
+                                                <td>@item.Book.BookName</td>
+                                                <td>@item.Book.Title</td>
+                                                <td>@item.Book.Author</td>
+                                                <td>@item.Book.Price</td>
+                                                <td>
+                                                    <img src="/images_product/@item.Book.BookPhotoName" style="max-height: 50px;">
+                                                </td>
+                                            }
+                                            <td>
+                                                <a class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" asp-area="Admin" asp-controller="Sale" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog Section -->

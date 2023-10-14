@@ -1,0 +1,89 @@
+﻿@using Library3.WebMVC.Areas.Admin.Models.DTOs
+@model BookSaleViewDTO
+
+
+<!-- Start Blog Section -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <div class="container">
+            <div class="row">
+                <form asp-area="Admin" asp-controller="Sale" asp-action="Created" method="post">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase mb-0">Select the Book You Want to Discount</h5>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <input class="form-control border-end-0 border" type="search" placeholder="search book" id="example-search-input">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table no-wrap user-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Select</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Brand</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Model</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Price($)</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Photo</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Discount Rate</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">Start Date</th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium">End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Books)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" name="selectedBooks" value="@item.Id" />
+                                                </td>
+                                                <td>@item.BookName</td>
+                                                <td>@item.Author</td>
+                                                <td>@item.Edition</td>
+                                                <td>@item.Price</td>
+                                                <td>
+                                                    <img src="/images_product/@item.BookPhotoName" style="max-height: 50px;">
+                                                </td>
+                                                @{
+                                                    var firstSale = Model.Sales.FirstOrDefault();
+                                                }
+                                                <td class="form-group">
+                                                    <input asp-for="@Model.Sales.FirstOrDefault().DiscountRate" class="form-control">
+                                                    <span asp-validation-for="@Model.Sales.FirstOrDefault().DiscountRate" class="focus-input100"></span>
+                                                </td>
+                                                <td class="form-group">
+                                                    <input asp-for="@Model.Sales.FirstOrDefault().StartDate" class="form-control">
+                                                    <span asp-validation-for="@Model.Sales.FirstOrDefault().StartDate" class="focus-input100"></span>
+                                                </td>
+                                                <td class="form-group">
+                                                    <input asp-for="@Model.Sales.FirstOrDefault().EndDate" class="form-control">
+                                                    <span asp-validation-for="@Model.Sales.FirstOrDefault().EndDate" class="focus-input100"></span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                        </div>
+                        <a class="btn btn-primary" asp-action="SaleIndex">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog Section -->

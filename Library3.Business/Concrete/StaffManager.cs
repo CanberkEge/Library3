@@ -11,9 +11,9 @@ namespace Library3.Business.Concrete
 {
     public class StaffManager : BaseManager<Staff>, IStaffManager
     {
-        public StaffManager(IStaffRepository repository) : base(repository) 
-        {
+        
+        
             
-        }
+        
     }
 }

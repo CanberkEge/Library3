@@ -16,6 +16,8 @@ namespace Library3.DAL.EntityConfig.Concrete
             base.Configure(builder);
 
             builder.Property(p => p.CategoryName).HasMaxLength(50);
+            builder.Property(p => p.CategoryPhotoName).HasMaxLength(100);
+
             builder.HasMany(p => p.Books).WithOne(c => c.Category);
         }
     }

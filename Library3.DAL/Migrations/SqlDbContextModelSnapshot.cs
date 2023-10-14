@@ -22,6 +22,21 @@ namespace Library3.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BookCart", b =>
+                {
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BooksId", "CartsId");
+
+                    b.HasIndex("CartsId");
+
+                    b.ToTable("BookCart");
+                });
+
             modelBuilder.Entity("Library3.Entity.Authentication.AppRole", b =>
                 {
                     b.Property<string>("Id")
@@ -133,12 +148,17 @@ namespace Library3.DAL.Migrations
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("BookName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("BookPhotoName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
@@ -146,20 +166,21 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 926, DateTimeKind.Local).AddTicks(5591));
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 732, DateTimeKind.Local).AddTicks(9015));
 
                     b.Property<DateTime?>("DueDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Edition")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("PageNumber")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<int?>("PublisherId")
                         .HasColumnType("int");
@@ -178,7 +199,8 @@ namespace Library3.DAL.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -191,6 +213,42 @@ namespace Library3.DAL.Migrations
                     b.HasIndex("StaffId");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("Library3.Entity.Concrete.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 733, DateTimeKind.Local).AddTicks(6355));
+
+                    b.Property<bool?>("IsPaid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<int?>("Quantity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<decimal?>("TotalPrice")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Library3.Entity.Concrete.Category", b =>
@@ -206,10 +264,14 @@ namespace Library3.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("CategoryPhotoName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(1530));
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 733, DateTimeKind.Local).AddTicks(8584));
 
                     b.HasKey("Id");
 
@@ -227,7 +289,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(3436));
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(404));
 
                     b.Property<DateTime>("PublishYear")
                         .HasMaxLength(4)
@@ -259,7 +321,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(5283));
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(2290));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -285,6 +347,38 @@ namespace Library3.DAL.Migrations
                     b.ToTable("Readers");
                 });
 
+            modelBuilder.Entity("Library3.Entity.Concrete.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(4483));
+
+                    b.Property<decimal?>("DiscountRate")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Sales");
+                });
+
             modelBuilder.Entity("Library3.Entity.Concrete.Staff", b =>
                 {
                     b.Property<int>("Id")
@@ -296,7 +390,7 @@ namespace Library3.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 10, 11, 20, 2, 19, 927, DateTimeKind.Local).AddTicks(7339));
+                        .HasDefaultValue(new DateTime(2023, 10, 15, 0, 15, 1, 734, DateTimeKind.Local).AddTicks(6525));
 
                     b.Property<string>("StaffFirstName")
                         .IsRequired()
@@ -434,6 +528,21 @@ namespace Library3.DAL.Migrations
                     b.ToTable("ReaderStaff");
                 });
 
+            modelBuilder.Entity("BookCart", b =>
+                {
+                    b.HasOne("Library3.Entity.Concrete.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library3.Entity.Concrete.Cart", null)
+                        .WithMany()
+                        .HasForeignKey("CartsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Library3.Entity.Concrete.Book", b =>
                 {
                     b.HasOne("Library3.Entity.Concrete.Category", "Category")
@@ -459,6 +568,24 @@ namespace Library3.DAL.Migrations
                     b.Navigation("Reader");
 
                     b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("Library3.Entity.Concrete.Cart", b =>
+                {
+                    b.HasOne("Library3.Entity.Authentication.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Library3.Entity.Concrete.Sale", b =>
+                {
+                    b.HasOne("Library3.Entity.Concrete.Book", "Book")
+                        .WithMany("Sales")
+                        .HasForeignKey("BookId");
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -525,6 +652,11 @@ namespace Library3.DAL.Migrations
                         .HasForeignKey("StaffsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Library3.Entity.Concrete.Book", b =>
+                {
+                    b.Navigation("Sales");
                 });
 
             modelBuilder.Entity("Library3.Entity.Concrete.Category", b =>

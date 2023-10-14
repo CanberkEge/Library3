@@ -1,5 +1,4 @@
 ﻿using Library3.Business.Abstract;
-using Library3.DAL.Abstract;
 using Library3.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace Library3.Business.Concrete
 {
-    public class PublisherManager : BaseManager<Publisher>, IPublisherManager
+    public class CartManager : BaseManager<Cart>, ICartManager
     {
-       
-        
-            
-        
     }
 }

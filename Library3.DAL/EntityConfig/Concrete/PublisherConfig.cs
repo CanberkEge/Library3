@@ -16,6 +16,7 @@ namespace Library3.DAL.EntityConfig.Concrete
         {
             base.Configure(builder);
             builder.Property(p => p.PublisherName).HasMaxLength(128);
+            
             builder.HasMany(p => p.Books).WithOne(pb => pb.Publisher);
             builder.Property(p=> p.PublishYear).HasMaxLength(4);
         }

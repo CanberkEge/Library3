@@ -12,10 +12,10 @@ namespace Library3.Business.Concrete
     public class SaleManager : BaseManager<Sale>, ISaleManager
     {
         
-        public SaleManager(ISaleRepository repository) : base (repository) 
-        {
+        
+        
             
-        }
+        
        
     }
 }
