@@ -54,7 +54,7 @@
                 </a>
 
                 <div class="d-lg-none">
-                    <a href="~/Free_Template_Home/sign-in.html" class="bi-person custom-icon me-3"></a>
+                    <a asp-area="Default" asp-controller="Login" asp-action="Index" class="bi-person custom-icon me-3"></a>
 
                     <a href="~/Free_Template_Home/product-detail.html" class="bi-bag custom-icon"></a>
                 </div>
@@ -87,7 +87,7 @@
                     </ul>
 
                     <div class="d-none d-lg-block">
-                        <a href="~/Free_Template_Home/sign-in.html" class="bi-person custom-icon me-3"></a>
+                        <a asp-area="Default" asp-controller="Login" asp-action="Index" class="bi-person custom-icon me-3"></a>
 
                         <a href="~/Free_Template_Home/product-detail.html" class="bi-bag custom-icon"></a>
                     </div>
@@ -190,7 +190,7 @@
                                             <h4 class="mb-3">Discover <span>Books</span> <br>for <span>your</span> development</h4>
 
 
-                                            <p>Italian Library provides books for everyone. You must <a href="~/Free_Template_Home/sign-in.html">sign in</a> / <a href="~/Free_Template_Home/sign-up.html">sign up</a> to reach all features. </p>
+                                            <p>Italian Library provides books for everyone. You must <a asp-area="Default" asp-controller="Login" asp-action="Index">sign in</a> / <a asp-area="Default" asp-controller="Login" asp-action="Register">sign up</a> to reach all features. </p>
 
                                             <div class="mt-2 mt-lg-auto">
                                                 <a asp-area="Default" asp-controller="Home" asp-action="About" class="custom-link mb-2">
@@ -299,7 +299,7 @@
 
                             <p class="lead mb-4">Our founder who is Canberk Ege Erden is a 27 years old software developer; wants everyone to read books at least once a week.</p>
 
-                            <a href="~/Free_Template_Home/products.html" class="custom-link">
+                            <a asp-area="Default" asp-controller="Book" asp-action="Index" class="custom-link">
                                 Explore Books
                                 <i class="bi-arrow-right ms-2"></i>
                             </a>
