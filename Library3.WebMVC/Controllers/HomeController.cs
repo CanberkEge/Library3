@@ -35,7 +35,7 @@ namespace Library3.WebMVC.Controllers
             return View(); 
         }
 
-       /* public IActionResult About()
+        public IActionResult About()
         {
             return View();
         }
@@ -59,6 +59,6 @@ namespace Library3.WebMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-       */
+       
     }
 }

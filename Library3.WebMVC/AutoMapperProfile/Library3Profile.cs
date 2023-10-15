@@ -9,7 +9,7 @@ namespace Library3.WebMVC.AutoMapperProfile
 
         public Library3Profile() 
         {
-            CreateMap<loginDTO, AppUser>();
+            CreateMap<LoginDTO, AppUser>();
             CreateMap<RegisterDTO, AppUser>();
         }
 
